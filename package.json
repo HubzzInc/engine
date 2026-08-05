@@ -1,0 +1,8 @@
+{
+  "name": "@hubzz/engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NESWUD — the spatial law. Blocks -> 6 handshakes (N/E/S/W/U/D) -> boundary faces. One engine; every seam consumes it.",
+  "type": "module",
+  "main": "index.ts"
+}
