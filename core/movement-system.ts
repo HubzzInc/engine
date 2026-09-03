@@ -4,7 +4,7 @@
  * lowest block node within the cluster instead of above the top surface.
  */
 
-import { Position3D, BlockNode } from "./schemas";
+import type { Position3D, BlockNode } from "./schemas";
 import { CHARACTER_HEIGHT } from "./constants";
 import { BlockNodeGraph } from "./block-node";
 

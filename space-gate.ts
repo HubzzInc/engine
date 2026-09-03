@@ -18,7 +18,8 @@
  */
 import { BlockNodeGraph } from "./core/block-node";
 import { ZoneTier, ZONE_BUDGETS } from "./core/constants";
-import { BoundingBox, Zone, createBlockNode } from "./core/schemas";
+import type { BoundingBox, Zone } from "./core/schemas";
+import { createBlockNode } from "./core/schemas";
 import { SpaceDetectionEngine } from "./core/space";
 import { ValidationEngine } from "./core/validation";
 import { computeRooms } from "./space-rooms";

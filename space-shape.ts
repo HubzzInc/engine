@@ -88,6 +88,28 @@ export const DIR_OFFSET: Record<ShapeDir, { x: number; y: number; z: number }> =
 
 export const OPPOSITE: Record<ShapeDir, ShapeDir> = { N: "S", S: "N", E: "W", W: "E", U: "D", D: "U" };
 
+export interface BoundaryFacePose {
+  center: readonly [number, number, number];
+  normal: readonly [number, number, number];
+}
+
+/**
+ * Renderer-neutral placement for one boundary face in canonical cell-corner
+ * coordinates. Consumers may choose their own mesh type, but not re-derive
+ * where a missing-handshake surface sits or which way it faces.
+ */
+export function boundaryFacePose(face: BoundaryFace): BoundaryFacePose {
+  const offset = DIR_OFFSET[face.dir];
+  return {
+    center: [
+      face.x + 0.5 + offset.x * 0.5,
+      face.y + 0.5 + offset.y * 0.5,
+      face.z + 0.5 + offset.z * 0.5,
+    ],
+    normal: [offset.x, offset.y, offset.z],
+  };
+}
+
 /**
  * Build the handshake graph from raw blocks and derive the shape truth:
  * clusters (connected components), boundary faces (missing handshakes) and
@@ -686,10 +708,9 @@ export function dollhouseFaceHidden(
 ): boolean {
   if (face.dir === "U") return true;
   if (face.dir === "D") return false;
-  const n = DIR_OFFSET[face.dir];
-  const fx = face.x + 0.5 + n.x * 0.5;
-  const fz = face.z + 0.5 + n.z * 0.5;
-  return n.x * (camera.x - fx) + n.z * (camera.z - fz) > 0.1;
+  const { center, normal } = boundaryFacePose(face);
+  return normal[0] * (camera.x - center[0]) +
+    normal[2] * (camera.z - center[2]) > 0.1;
 }
 
 /**

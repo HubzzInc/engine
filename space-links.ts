@@ -5,7 +5,7 @@
  * the live table; engine-checks pins it in isolation. Keep the let-else guard
  * and the door-index (n) semantics EXACTLY aligned with the Rust.
  */
-import { ShellOpening } from "./space-shape";
+import type { ShellOpening } from "./space-shape";
 
 export interface DerivedLink {
   linkId: string; toWorld: string; x: number; z: number; spawnX: number; spawnZ: number;

@@ -3,14 +3,8 @@
  * Implements connected component analysis to detect spaces from BlockNode graphs
  */
 
-import {
-  BlockNode,
-  Space,
-  BoundingBox,
-  Position3D,
-  Position2D,
-  createSpace,
-} from "./schemas";
+import type { BlockNode, Space, BoundingBox, Position3D, Position2D } from "./schemas";
+import { createSpace } from "./schemas";
 import { SpaceType, MIN_SPACE_HEIGHT, MIN_FLOOR_AREA } from "./constants";
 import { BlockNodeGraph } from "./block-node";
 

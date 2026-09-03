@@ -29,7 +29,8 @@
  *     (ground floor) is the fallback.
  */
 
-import { BlockNode, Space, Structure, createSpace } from "./schemas";
+import type { BlockNode, Space, Structure } from "./schemas";
+import { createSpace } from "./schemas";
 import { SpaceType } from "./constants";
 
 // =============================================================================

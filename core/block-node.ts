@@ -3,7 +3,8 @@
  * Implements the fundamental 2D-Net primitive with neighbor links
  */
 
-import { BlockNode, InterfaceElement, Position3D, createBlockNode, ValidationError } from "./schemas";
+import type { BlockNode, InterfaceElement, Position3D, ValidationError } from "./schemas";
+import { createBlockNode } from "./schemas";
 import {
   NeighborDir,
   OPPOSITE_DIR,

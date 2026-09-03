@@ -3,7 +3,7 @@
  * Handles URL-based spawning with drop-to-floor logic
  */
 
-import { Position3D, BlockNode } from "./schemas";
+import type { Position3D, BlockNode } from "./schemas";
 import { CHARACTER_HEIGHT } from "./constants";
 import { BlockNodeGraph } from "./block-node";
 import { SpaceDetectionEngine } from "./space";

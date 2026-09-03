@@ -3,13 +3,8 @@
  * Detects both solid structures AND hollow interior spaces within those structures
  */
 
-import {
-  BlockNode,
-  Space,
-  BoundingBox,
-  Position3D,
-  createSpace,
-} from "./schemas";
+import type { BlockNode, Space, BoundingBox, Position3D } from "./schemas";
+import { createSpace } from "./schemas";
 import { ALLOWED_HEIGHTS, SpaceType, ZONE_GRID_SIZE } from "./constants";
 import { BlockNodeGraph } from "./block-node";
 

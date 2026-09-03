@@ -7,7 +7,7 @@
  * floor's derived standable grid. Nothing here authors a voxel or a shaft.
  */
 
-import { ValidationError } from "./core/schemas";
+import type { ValidationError } from "./core/schemas";
 
 /** One structure floor as read from the STDB `space` table. */
 export interface SpineRow {
