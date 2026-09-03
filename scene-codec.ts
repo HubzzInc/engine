@@ -8,9 +8,8 @@
  * here alone; the Rust law is byte-parity-checked against this via the CI
  * `walkable --verify` grid comparison.
  */
-import {
-  AuthoredInterface, ShellOpening, interfacesToOpenings, openingsToInterfaces,
-} from "./space-shape";
+import type { AuthoredInterface, ShellOpening } from "./space-shape";
+import { interfacesToOpenings, openingsToInterfaces } from "./space-shape";
 import { ZONE_GRID_SIZE } from "./core/constants";
 
 const ZONE = ZONE_GRID_SIZE;

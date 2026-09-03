@@ -13,7 +13,8 @@
  */
 import { createBlockNode } from "./core/schemas";
 import { BlockNodeGraph } from "./core/block-node";
-import { SpaceCacheManager, CachedSpaceSnapshot, CacheMetrics } from "./core/space-cache";
+import type { CachedSpaceSnapshot, CacheMetrics } from "./core/space-cache";
+import { SpaceCacheManager } from "./core/space-cache";
 import { netFingerprint } from "./space-shape";
 
 const manager = new SpaceCacheManager();

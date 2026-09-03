@@ -3,7 +3,7 @@
  * Implements all validation rules from the technical specification
  */
 
-import {
+import type {
   BlockNode,
   BoundingBox,
   Space,

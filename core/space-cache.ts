@@ -4,7 +4,7 @@
  * Flood fill runs once, then uses cached results with incremental updates
  */
 
-import { Position3D, BlockNode } from "./schemas";
+import type { Position3D, BlockNode } from "./schemas";
 import { BlockNodeGraph } from "./block-node";
 import { NeighborDir } from "./constants";
 
