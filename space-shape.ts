@@ -1336,6 +1336,16 @@ function normalize(cells: { x: number; y: number; z: number }[]) {
   return cells.map((c) => ({ x: c.x - b.minX, y: c.y - b.minY, z: c.z - b.minZ }));
 }
 
+/**
+ * FNV-1a 64-bit checksum used for the net1 mint id.
+ *
+ * Collision policy: non-cryptographic, birthday bound 2^32 inputs at 50%
+ * collision probability. The mint pipeline must check for id collisions and
+ * reject on collision before the id becomes load-bearing (on-chain or
+ * otherwise); do not treat distinct geometries as distinct on the strength
+ * of this checksum alone. If the mint id ever needs cryptographic binding,
+ * replace with SHA-256 of the canonical cell string.
+ */
 function fnv1a64(str: string): string {
   let h = 0xcbf29ce484222325n;
   for (let i = 0; i < str.length; i++) {

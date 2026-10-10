@@ -10,6 +10,7 @@ import {
   Position3D,
   Position2D,
   createSpace,
+  deterministicSpaceId,
 } from "./schemas";
 import { SpaceType, MIN_SPACE_HEIGHT, MIN_FLOOR_AREA } from "./constants";
 import { BlockNodeGraph } from "./block-node";
@@ -120,9 +121,10 @@ export class SpaceDetectionEngine {
     }
 
     // Create space object
-    const spaceId = `space_${Date.now()}_${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
+    const spaceId = deterministicSpaceId(
+      "space",
+      blocks.map((b) => b.p)
+    );
     const space = createSpace(spaceId, zoneId, this.determineSpaceType(blocks));
 
     // Populate space data

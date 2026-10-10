@@ -9,6 +9,7 @@ import {
   BoundingBox,
   Position3D,
   createSpace,
+  deterministicSpaceId,
 } from "./schemas";
 import { ALLOWED_HEIGHTS, SpaceType, ZONE_GRID_SIZE } from "./constants";
 import { BlockNodeGraph } from "./block-node";
@@ -304,9 +305,7 @@ export class HollowSpaceDetectionEngine {
   ): Space | null {
     if (hollowRegion.length === 0) return null;
 
-    const spaceId = `hollow_${Date.now()}_${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
+    const spaceId = deterministicSpaceId("hollow", hollowRegion);
     const hollowSpace = createSpace(spaceId, zoneId, SpaceType.Public);
 
     // Calculate bounding box for hollow space
@@ -365,7 +364,7 @@ export class HollowSpaceDetectionEngine {
 
     if (violatingBlocks.length > 0) {
       outOfBoundsRegions.push({
-        regionId: `oob_zone_${Date.now()}`,
+        regionId: deterministicSpaceId("oob_zone", violatingBlocks),
         boundingBox: this.calculateBoundingBoxFromPositions(violatingBlocks),
         voxelPositions: violatingBlocks,
         reason: "ZONE_BOUNDARY",
@@ -393,9 +392,10 @@ export class HollowSpaceDetectionEngine {
       .filter((b): b is BlockNode => Boolean(b));
     if (blocks.length === 0) return null;
 
-    const spaceId = `${type}_${Date.now()}_${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
+    const spaceId = deterministicSpaceId(
+      type,
+      blocks.map((b) => b.p)
+    );
     const space = createSpace(spaceId, zoneId, SpaceType.Public);
 
     space.blockIds = component;

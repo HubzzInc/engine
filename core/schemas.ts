@@ -10,6 +10,7 @@ import {
   ZoneTier,
   ValidationStatus,
 } from "./constants";
+import { sha256Hex } from "../sha256";
 
 // =============================================================================
 // COORDINATE SYSTEM
@@ -441,6 +442,27 @@ export function createBlockNode(
       createdAt: Date.now(),
     },
   };
+}
+
+/**
+ * Deterministic space id: `prefix_<12 hex chars of SHA-256 over sorted coords>`.
+ *
+ * Space ids feed integrity hashes (spaceFingerprintMeta in space-shape.ts), so
+ * they must be stable: the same detected geometry must produce the same id on
+ * every run. Wall-clock + Math.random ids made the integrity hash move when
+ * nothing changed, and broke test reproducibility.
+ *
+ * Collision policy: 48-bit truncation, birthday bound 2^24 spaces per zone at
+ * 50% collision probability. Detection only merges identical coordinate sets,
+ * so a collision needs ~16M distinct spaces in one zone; downstream, id
+ * equality may be treated as content equality.
+ */
+export function deterministicSpaceId(
+  prefix: string,
+  positions: { x: number; y: number; z: number }[]
+): string {
+  const keys = positions.map((p) => `${p.x},${p.y},${p.z}`).sort();
+  return `${prefix}_${sha256Hex(keys.join(";")).slice(0, 12)}`;
 }
 
 /** Create a new space with default values */
