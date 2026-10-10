@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "NESWUD: the Hubzz spatial law (blocks to six handshakes to boundary faces)"
+authors:
+  - name: "Hubzz Inc"
+    website: "https://hubzz.com"
+repository-code: "https://github.com/HubzzInc/engine"
+url: "https://github.com/HubzzInc/engine"
+license: MIT
+version: 0.1.0
+date-released: 2026-10-10
+abstract: "NESWUD is the spatial law behind the Hubzz engine: spaces are unit
+  blocks on an integer lattice; each block carries six reciprocal neighbor slots
+  (N/E/S/W/U/D, the six handshakes); a missing handshake is an exposed boundary
+  face; shape truth is the set of boundary faces, never a bounding box."
+preferred-citation:
+  type: software
+  title: "NESWUD spatial law, Hubzz Inc"
+  url: "https://github.com/HubzzInc/engine"

@@ -1,8 +1,1 @@
-{
-  "name": "@hubzz/engine",
-  "version": "0.1.0",
-  "private": true,
-  "description": "NESWUD — the spatial law. Blocks -> 6 handshakes (N/E/S/W/U/D) -> boundary faces. One engine; every seam consumes it.",
-  "type": "module",
-  "main": "index.ts"
-}
+{"author":"Hubzz Inc <https://hubzz.com>","description":"NESWUD, the Hubzz spatial law. Blocks -> 6 handshakes (N/E/S/W/U/D) -> boundary faces. One engine; every seam consumes it.","homepage":"https://hubzz.com","license":"MIT","main":"index.ts","name":"@hubzz/engine","private":true,"repository":{"type":"git","url":"https://github.com/HubzzInc/engine.git"},"type":"module","version":"0.1.0"}
