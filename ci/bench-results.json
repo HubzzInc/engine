@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-10T19:23:36.625Z",
+  "machine": "Linux VM (CI bench)",
+  "node": "v24.20.0",
+  "runs_per_measurement": 5,
+  "aggregation": "median",
+  "scenes": [
+    {
+      "scene": "pair",
+      "blocks": 2,
+      "nt1_bytes": 22,
+      "nt1_ms": 1.63,
+      "roundtrip_ok": true,
+      "raw_bytes": 2,
+      "zlib_bytes": 10,
+      "nt1_over_raw": 11,
+      "zlib_over_raw": 5,
+      "nt1_over_zlib": 2.2,
+      "gate_ms": 0.21,
+      "gate_valid": false,
+      "gate_errors": 1,
+      "graph_build_ms": 0.02,
+      "flood_ms": 0,
+      "clusters": 1
+    },
+    {
+      "scene": "L-8x6x6",
+      "blocks": 234,
+      "nt1_bytes": 63,
+      "nt1_ms": 10.44,
+      "roundtrip_ok": true,
+      "raw_bytes": 288,
+      "zlib_bytes": 19,
+      "nt1_over_raw": 0.219,
+      "zlib_over_raw": 0.066,
+      "nt1_over_zlib": 3.316,
+      "gate_ms": 10.81,
+      "gate_valid": false,
+      "gate_errors": 1,
+      "graph_build_ms": 0.67,
+      "flood_ms": 0.24,
+      "clusters": 1
+    },
+    {
+      "scene": "room-8x6",
+      "blocks": 120,
+      "nt1_bytes": 112,
+      "nt1_ms": 2.03,
+      "roundtrip_ok": true,
+      "raw_bytes": 192,
+      "zlib_bytes": 18,
+      "nt1_over_raw": 0.583,
+      "zlib_over_raw": 0.094,
+      "nt1_over_zlib": 6.222,
+      "gate_ms": 3.77,
+      "gate_valid": true,
+      "gate_errors": 0,
+      "graph_build_ms": 0.32,
+      "flood_ms": 0.05,
+      "clusters": 1
+    },
+    {
+      "scene": "floorplan-2room",
+      "blocks": 178,
+      "nt1_bytes": 204,
+      "nt1_ms": 3.93,
+      "roundtrip_ok": true,
+      "raw_bytes": 288,
+      "zlib_bytes": 30,
+      "nt1_over_raw": 0.708,
+      "zlib_over_raw": 0.104,
+      "nt1_over_zlib": 6.8,
+      "gate_ms": 16.54,
+      "gate_valid": true,
+      "gate_errors": 0,
+      "graph_build_ms": 0.35,
+      "flood_ms": 0.11,
+      "clusters": 1
+    },
+    {
+      "scene": "tower-10",
+      "blocks": 378,
+      "nt1_bytes": 663,
+      "nt1_ms": 7.15,
+      "roundtrip_ok": true,
+      "raw_bytes": 1008,
+      "zlib_bytes": 26,
+      "nt1_over_raw": 0.658,
+      "zlib_over_raw": 0.026,
+      "nt1_over_zlib": 25.5,
+      "gate_ms": 19.41,
+      "gate_valid": false,
+      "gate_errors": 2,
+      "graph_build_ms": 1.27,
+      "flood_ms": 0.35,
+      "clusters": 1
+    },
+    {
+      "scene": "solid-8",
+      "blocks": 512,
+      "nt1_bytes": 91,
+      "nt1_ms": 10.64,
+      "roundtrip_ok": true,
+      "raw_bytes": 512,
+      "zlib_bytes": 14,
+      "nt1_over_raw": 0.178,
+      "zlib_over_raw": 0.027,
+      "nt1_over_zlib": 6.5,
+      "gate_ms": 23.33,
+      "gate_valid": true,
+      "gate_errors": 0,
+      "graph_build_ms": 1.43,
+      "flood_ms": 1.79,
+      "clusters": 1
+    },
+    {
+      "scene": "solid-16",
+      "blocks": 4096,
+      "nt1_bytes": 307,
+      "nt1_ms": 89.08,
+      "roundtrip_ok": true,
+      "raw_bytes": 4096,
+      "zlib_bytes": 27,
+      "nt1_over_raw": 0.075,
+      "zlib_over_raw": 0.007,
+      "nt1_over_zlib": 11.37,
+      "gate_ms": 457.19,
+      "gate_valid": false,
+      "gate_errors": 1,
+      "graph_build_ms": 11.73,
+      "flood_ms": 5.51,
+      "clusters": 1
+    },
+    {
+      "scene": "solid-32",
+      "blocks": 32768,
+      "nt1_bytes": 1171,
+      "nt1_ms": 905.02,
+      "roundtrip_ok": true,
+      "raw_bytes": 32768,
+      "zlib_bytes": 53,
+      "nt1_over_raw": 0.036,
+      "zlib_over_raw": 0.002,
+      "nt1_over_zlib": 22.094,
+      "gate_ms": 27606.93,
+      "gate_valid": false,
+      "gate_errors": 1,
+      "graph_build_ms": 280.18,
+      "flood_ms": 172.21,
+      "clusters": 1
+    },
+    {
+      "scene": "shell-32",
+      "blocks": 5768,
+      "nt1_bytes": 2487,
+      "nt1_ms": 94.35,
+      "roundtrip_ok": true,
+      "raw_bytes": 32768,
+      "zlib_bytes": 154,
+      "nt1_over_raw": 0.076,
+      "zlib_over_raw": 0.005,
+      "nt1_over_zlib": 16.149,
+      "gate_ms": 1204.71,
+      "gate_valid": false,
+      "gate_errors": 1,
+      "graph_build_ms": 18.23,
+      "flood_ms": 6.78,
+      "clusters": 1
+    }
+  ],
+  "corpus": {
+    "scenes": 9,
+    "total_blocks": 44056,
+    "block_counts": [
+      {
+        "scene": "pair",
+        "blocks": 2
+      },
+      {
+        "scene": "L-8x6x6",
+        "blocks": 234
+      },
+      {
+        "scene": "room-8x6",
+        "blocks": 120
+      },
+      {
+        "scene": "floorplan-2room",
+        "blocks": 178
+      },
+      {
+        "scene": "tower-10",
+        "blocks": 378
+      },
+      {
+        "scene": "solid-8",
+        "blocks": 512
+      },
+      {
+        "scene": "solid-16",
+        "blocks": 4096
+      },
+      {
+        "scene": "solid-32",
+        "blocks": 32768
+      },
+      {
+        "scene": "shell-32",
+        "blocks": 5768
+      }
+    ],
+    "nt1_bytes_total": 5120,
+    "raw_bytes_total": 71922,
+    "zlib_bytes_total": 351,
+    "nt1_over_raw_total": 0.071,
+    "zlib_over_raw_total": 0.005,
+    "nt1_over_zlib_total": 14.587
+  }
+}

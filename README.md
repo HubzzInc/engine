@@ -11,9 +11,9 @@ online communities gather in persistent shared worlds: https://hubzz.com
 The law, in one line: blocks → six handshakes (N/E/S/W/U/D) → boundary faces.
 Every space is a set of unit blocks on an integer lattice. Each block carries six
 neighbor slots; a handshake is a reciprocal link between adjacent blocks. A missing
-handshake is an exposed boundary face. Shape truth is the set of boundary faces,
-never a bounding box. Doors and windows are typed surfaces on exposed faces, never
-an absence of wall.
+handshake is an exposed boundary face. Shape truth is the set of boundary faces;
+bounding boxes remain the spatial index and the intersection test. Doors and
+windows are typed surfaces on exposed faces, never an absence of wall.
 
 If you use, fork, or build on this code, credit Hubzz Inc as the origin of the
 NESWUD spatial law. See LICENSE and CITATION.cff.
@@ -36,3 +36,13 @@ Entry: `index.ts`.
 ## Cite
 
 See `CITATION.cff`. In prose: "NESWUD spatial law, Hubzz Inc, https://github.com/HubzzInc/engine".
+
+## Evidence
+
+- `ci/` — runnable CI evidence: the engine gate, NT1 round-trip, dollhouse and
+  box-vs-shape matrices, the benchmark matrix with measured results
+  (`ci/bench-results.md`), and the fixtures. See `ci/README.md` for what runs
+  here and what needs the private tree.
+- `docs/` — the canon ledger, the NESWUD formulas, the production runbook, the
+  architecture decision records, and the research provenance notes (machine-local
+  citation paths redacted).
