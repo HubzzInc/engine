@@ -1,6 +1,6 @@
 /**
- * Hubzz Voxel Engine Prototype - Main Entry Point
- * 2D-Net Driven Architecture Implementation
+ * @hubzz/engine - Main Entry Point
+ * NESWUD spatial system: blocks → six handshakes (N/E/S/W/U/D) → boundary faces.
  */
 
 // Core exports

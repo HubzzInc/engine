@@ -2,12 +2,16 @@
  * NESWUD shape bridge — blocks → handshake graph → shape truth.
  *
  * The NESWUD system IS the shape representation: every block is a node with 6
- * handshakes (N/E/S/W/U/D). A space is a cluster in the handshake graph; a
+ * neighbor slots (N/E/S/W/U/D). A space is a cluster in the handshake graph; a
  * MISSING handshake is an exposed face (no N neighbor → north wall, no U →
- * ceiling, no D → floor). Doors/windows are deliberately broken handshakes.
- * Nothing downstream should reason from a bounding box — the box is only a
- * subscription/spatial index. Every seam (editor shell, validation gate,
- * world-client dollhouse, spawn placement, CLI) consumes THIS.
+ * ceiling, no D → floor). Handshakes are auto-derived from occupancy at exact
+ * unit offsets and validated for reciprocity; the graph is a validity check on
+ * a redundant adjacency cache, not separately authored links. Doors/windows
+ * are typed surfaces on exposed faces; the wall block remains. Boundary faces
+ * are shape truth; bounding boxes remain the spatial index and the
+ * intersection test (see validation.ts boxesIntersect). Every seam (editor
+ * shell, validation gate, world-client dollhouse, spawn placement, CLI)
+ * consumes THIS.
  *
  * Bridged the same way space-gate bridges the ValidationEngine: pure function
  * over the engine's own BlockNodeGraph (autoLinkBlock = the handshake pass,
