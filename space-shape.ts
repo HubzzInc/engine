@@ -624,7 +624,7 @@ export function dollhouseHiddenDirs(
 
 /** A quad's 4 corner offsets from the block origin, per face direction — the
  *  oracle's `face_vertices` with the viz->engine axis swap applied. */
-const FACE_QUAD: Record<ShapeDir, readonly (readonly [number, number, number])[]> = {
+export const FACE_QUAD: Record<ShapeDir, readonly (readonly [number, number, number])[]> = {
   E: [[1, 0, 0], [1, 0, 1], [1, 1, 1], [1, 1, 0]],
   W: [[0, 1, 0], [0, 1, 1], [0, 0, 1], [0, 0, 0]],
   N: [[0, 0, 1], [0, 1, 1], [1, 1, 1], [1, 0, 1]],
@@ -649,7 +649,7 @@ const edgeKey = (a: QuadVertex, b: QuadVertex) => {
  * edge -> face-index map. One derivation feeds every dollhouse stage below —
  * FORMULAS.md "Seams". Do not re-derive seams in a consumer.
  */
-function faceEdges(faces: BoundaryFace[]): {
+export function faceEdges(faces: BoundaryFace[]): {
   quads: QuadVertex[][];
   edges: Map<string, number[]>;
 } {
