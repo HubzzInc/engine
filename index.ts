@@ -15,6 +15,9 @@ export * from './core/spawning-system';
 export * from './core/space-cache';
 export * from './space-shape';
 export * from './space-spine';
+// Space-id alias law (ADR 0010): retired namespace:slug -> canonical.
+// Shape, structure_id, and the reducer are not this module.
+export * from './space-alias';
 // shell-view exports a flat `BoundingBox` ({minX..maxZ}) that collides with
 // core/schemas' nested `BoundingBox` ({min,max}) under `export *`. Re-export
 // the shell-view surface explicitly so both shapes stay available without
