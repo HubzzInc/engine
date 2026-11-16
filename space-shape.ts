@@ -92,6 +92,30 @@ export const DIR_OFFSET: Record<ShapeDir, { x: number; y: number; z: number }> =
 
 export const OPPOSITE: Record<ShapeDir, ShapeDir> = { N: "S", S: "N", E: "W", W: "E", U: "D", D: "U" };
 
+export interface BoundaryFacePose {
+  center: readonly [number, number, number];
+  normal: readonly [number, number, number];
+}
+
+/**
+ * Renderer-neutral placement for one boundary face in canonical cell-corner
+ * coordinates. Consumers may choose their own mesh type, but not re-derive
+ * where a missing-handshake surface sits or which way it faces. Ported from
+ * the published mirror line (HubzzInc/engine publish/neswud-407d9224) — the
+ * pre-alpha BMS room bake consumes it (roomBake.ts).
+ */
+export function boundaryFacePose(face: BoundaryFace): BoundaryFacePose {
+  const offset = DIR_OFFSET[face.dir];
+  return {
+    center: [
+      face.x + 0.5 + offset.x * 0.5,
+      face.y + 0.5 + offset.y * 0.5,
+      face.z + 0.5 + offset.z * 0.5,
+    ],
+    normal: [offset.x, offset.y, offset.z],
+  };
+}
+
 /**
  * Build the handshake graph from raw blocks and derive the shape truth:
  * clusters (connected components), boundary faces (missing handshakes) and
@@ -605,8 +629,10 @@ export function dollhouseHiddenDirs(
 // must add 0.5 to the camera it passes in.
 
 /** A quad's 4 corner offsets from the block origin, per face direction — the
- *  oracle's `face_vertices` with the viz->engine axis swap applied. */
-const FACE_QUAD: Record<ShapeDir, readonly (readonly [number, number, number])[]> = {
+ *  oracle's `face_vertices` with the viz->engine axis swap applied. Exported:
+ *  pre-alpha's items-studio and the BMS room bake consume the raw quad table
+ *  (HubzzInc/engine#2). */
+export const FACE_QUAD: Record<ShapeDir, readonly (readonly [number, number, number])[]> = {
   E: [[1, 0, 0], [1, 0, 1], [1, 1, 1], [1, 1, 0]],
   W: [[0, 1, 0], [0, 1, 1], [0, 0, 1], [0, 0, 0]],
   N: [[0, 0, 1], [0, 1, 1], [1, 1, 1], [1, 0, 1]],
@@ -629,9 +655,10 @@ const edgeKey = (a: QuadVertex, b: QuadVertex) => {
 /**
  * THE seam source (the viz's `_face_edges`): per-face quads plus an
  * edge -> face-index map. One derivation feeds every dollhouse stage below —
- * FORMULAS.md "Seams". Do not re-derive seams in a consumer.
+ * FORMULAS.md "Seams". Do not re-derive seams in a consumer. Exported:
+ * pre-alpha's items-studio consumes it (HubzzInc/engine#2).
  */
-function faceEdges(faces: BoundaryFace[]): {
+export function faceEdges(faces: BoundaryFace[]): {
   quads: QuadVertex[][];
   edges: Map<string, number[]>;
 } {
